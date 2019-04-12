@@ -3,11 +3,11 @@ const defaultAction = action => function (...args) {
     return
   }
 
-  this.store.dispatch(this.$$actions[action].apply(this, args))
+  this.reduxStore.dispatch(this.$$actions[action].apply(this, args))
 }
 
 const customAction = fn => function (...args) {
-  return fn.apply(this, [Object.assign({}, this.store, { actions: this.$$actions }), ...args])
+  return fn.apply(this, [Object.assign({}, this.reduxStore, { actions: this.$$actions }), ...args])
 }
 
 const simpleActions = actions =>

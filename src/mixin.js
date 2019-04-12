@@ -18,7 +18,7 @@ export const connect = ({ Vue, store, actions = {} }) => {
 
   Vue.mixin({
     beforeCreate () {
-      this.store = store
+      this.reduxStore = store
       this.$$actions = actions
 
       this.mapState = (...props) => mapState(...props).call(this)
